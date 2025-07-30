@@ -23,8 +23,8 @@ jobs:
 
     - name: Copy files to server
       run: |
-        rsync -avz --exclude '.git/' . ubuntu@81.231.74.206:/home/memo/CICD
+        rsync -avz --exclude '.git/' . memo@81.231.74.206:/home/memo/CICD
 
     - name: Deploy containers
       run: |
-        ssh ubuntu@81.231.74.206 'cd /home/memo/CICD && bash scripts/prepare_dirs.sh && docker compose up -d --build'
+        ssh memo@81.231.74.206 'cd /home/memo/CICD && bash scripts/prepare_dirs.sh && docker compose up -d --build'

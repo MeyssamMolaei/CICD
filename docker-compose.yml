@@ -34,6 +34,7 @@ services:
     environment:
       - AIRFLOW__CORE__LOAD_EXAMPLES=False
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__WEBSERVER__EXPOSE_CONFIG=True
     volumes:
       - ./docker/airflow/dags:/opt/airflow/dags
       - ./docker/airflow/data:/opt/airflow/data
@@ -42,3 +43,4 @@ services:
     depends_on:
       - postgres
       - mssql
+    command: standalone

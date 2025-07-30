@@ -28,3 +28,4 @@ jobs:
     - name: Deploy containers
       run: |
         ssh memo@81.231.74.206 'cd /home/memo/CICD && bash scripts/prepare_dirs.sh && docker compose up -d --build'
+

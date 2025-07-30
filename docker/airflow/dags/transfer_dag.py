@@ -122,8 +122,9 @@ CREATE_TABLE_QUERIES = {
             payment_date DATETIME,
             payment_method NVARCHAR(50)
         );
-    """
+    """,
 }
+
 
 def transfer_table(table_name):
     # اتصال به دیتابیس‌ها
@@ -138,23 +139,24 @@ def transfer_table(table_name):
     df = pd.read_sql(f"SELECT * FROM {table_name}", pg_engine)
 
     # درج داده در MSSQL (replace if already exists)
-    df.to_sql(table_name, mssql_engine, if_exists='append', index=False, method='multi')
+    df.to_sql(table_name, mssql_engine, if_exists="append", index=False, method="multi")
+
 
 default_args = {
-    'start_date': datetime(2024, 1, 1),
-    'catchup': False,
+    "start_date": datetime(2024, 1, 1),
+    "catchup": False,
 }
 
 with DAG(
     dag_id="pg_to_mssql_full_transfer",
     schedule_interval=None,
     default_args=default_args,
-    description="Transfer all tables from Postgres to MSSQL"
+    description="Transfer all tables from Postgres to MSSQL",
 ) as dag:
 
     for tbl in TABLES:
         PythonOperator(
             task_id=f"transfer_{tbl}",
             python_callable=transfer_table,
-            op_kwargs={'table_name': tbl},
+            op_kwargs={"table_name": tbl},
         )

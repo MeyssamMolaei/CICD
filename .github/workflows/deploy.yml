@@ -17,6 +17,10 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.SERVER_SSH_KEY }}
 
+    - name: Add server to known_hosts
+      run: |
+        ssh-keyscan 81.231.74.206 >> ~/.ssh/known_hosts
+
     - name: Copy files to server
       run: |
         rsync -avz --exclude '.git/' . ubuntu@81.231.74.206:/home/memo/CICD

@@ -149,7 +149,7 @@ default_args = {
 
 with DAG(
     dag_id="pg_to_mssql_full_transfer",
-    schedule_interval=None,
+    schedule=None,
     default_args=default_args,
     description="Transfer all tables from Postgres to MSSQL",
 ) as dag:

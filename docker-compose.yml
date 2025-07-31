@@ -35,7 +35,7 @@ services:
       - _AIRFLOW_WWW_USER=admin
       - _AIRFLOW_WWW_PASSWORD=admin
       - _AIRFLOW_WWW_EMAIL=meyssam.molaei@gmail.com
-      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__CORE__LOAD_EXAMPLES=True
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
       - AIRFLOW__WEBSERVER__EXPOSE_CONFIG=True
     volumes:

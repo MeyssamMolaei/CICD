@@ -5,7 +5,7 @@ import pandas as pd
 import sqlalchemy
 
 PG_CONN_STR = "postgresql+psycopg2://pguser:pgpassword@postgres:5432/pgdb"
-MSSQL_CONN_STR = "mssql+pyodbc://sa:P%40ssw0rd2024@mssql:1433/tempdb?driver=ODBC+Driver+17+for+SQL+Server"
+MSSQL_CONN_STR = "mssql+pyodbc://sa:Passw0rd2024@mssql:1433/tempdb?driver=ODBC+Driver+17+for+SQL+Server"
 
 TABLES = [
     "users",
